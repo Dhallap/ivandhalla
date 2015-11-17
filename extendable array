@@ -1,0 +1,50 @@
+package advancedanalysis;
+
+import java.util.ArrayList;
+
+public class ExtendableArray {
+
+   public static void main( String [ ] args )
+   {
+	   int NITEMS = 1000000;
+	   int N = 10; // capacity of array list
+	   int n = 0; // number of elements in extendable array
+	   double d = 1.4;
+	   int y = 0;
+	   double[] exa = new double[N]; // initializing the array
+	   double z = 10;
+	 
+			
+	   System.out.println("Extending array using d tupling");
+	
+	 /*  for(double d = 1.2; d < 4.1; d += 0.2)
+	   {
+		 System.out.println("Value of d :"+d); */
+		   long startTime = System.currentTimeMillis();
+	   
+	   for( int i = 0; i < NITEMS; i++ )
+	   {
+		   exa[i] = i;
+		   n++;
+		  // System.out.println("size = " + exa.length +" N : "+n +" exa[]: "+exa[i]);
+		   if (n == exa.length)
+		   {
+			   z = z*d; // d-tupling the array values
+			   y = (int)z;
+			   
+			  double[] b = new double[y];
+			   for (int j=0; j<n; j++)
+			   {
+				   
+				   b[j] = exa[j];
+			   }
+			   exa = b;
+			 
+		   }
+	   }
+	   
+	   long totalTime = System.currentTimeMillis() - startTime; 
+	   System.out.println("totalTime = " + totalTime);
+   }
+   }
+
